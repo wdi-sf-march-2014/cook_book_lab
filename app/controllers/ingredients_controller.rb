@@ -21,4 +21,3 @@ class IngredientsController < ApplicationController
   def destroy
   end
 end
-end
