@@ -1,0 +1,24 @@
+<ul class="nav nav-pills">
+  <li>
+	<%= link_to('All Recipes', recipes_path) %>
+  </li>
+    <li>
+    <%= link_to('All Ingredients', ingredients_path) %>
+  </li>
+</ul>
+
+<% @recipes.each do |recipe| %>
+  <div class="row">
+     <div class="col-md-4 col-sm-4">
+      <p class="lead"><%= link_to(recipe.name, recipe) %>
+      <p><%= recipe.course %>
+      <p><%= recipe.cooktime %>
+      <p><%= recipe.servingsize %>
+      <p><%= recipe.instructions %>
+      <p><% recipe.ingredients.each do |i|%>
+      	<%= i[:name] %></br>
+      <% end %>
+      <!--  TODO: Add code to display ingredients! this is something I can't seem to get work! -->
+    </div>
+  </div>
+<% end %>
