@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428182950) do
+ActiveRecord::Schema.define(version: 20140428232822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ingredients", force: true do |t|
+    t.string   "name"
+    t.string   "brand"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ingredients_measurements", force: true do |t|
+    t.integer  "ingredient_id"
+    t.integer  "recipe_id"
+    t.float    "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ingredients_measurements", ["ingredient_id"], name: "index_ingredients_measurements_on_ingredient_id", using: :btree
+  add_index "ingredients_measurements", ["recipe_id"], name: "index_ingredients_measurements_on_recipe_id", using: :btree
 
   create_table "recipes", force: true do |t|
     t.string   "name"
