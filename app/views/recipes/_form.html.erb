@@ -14,7 +14,19 @@
   <%= f.label :instructions %>
   <%= f.text_area :instructions, :cols => 40, :rows => 10 %>
   <br>
+  Ingredients:
+  <ul>
+    <%=f.fields_for :ingredients do |ingredients_form| %>
+    <li>
+        <%= "I have made it here" %>
+        <%= ingredients_form.label :name %>
+        <%= ingredients_form.text_field :name %>
 
+        <%= ingredients_form.label :brand %>
+        <%= ingredients_form.text_field :brand%>
+    </li>
+    <% end %>
+  </ul>
   <p><p>
   <%= f.submit  class: "btn btn-primary" %>
 <% end %>

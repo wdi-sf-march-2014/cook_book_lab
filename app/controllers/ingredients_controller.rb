@@ -6,7 +6,7 @@ class IngredientsController < ApplicationController
   end
 
   def new
-    @ingredients = Ingredient.new
+    @ingredient = Ingredient.new
   end
 
   def create
@@ -24,7 +24,7 @@ class IngredientsController < ApplicationController
 
   def update
     ingredient = Ingredient.find(params[:id])
-    ingredient.update_attributes Ingredient_params
+    ingredient.update_attributes ingredient_params
     redirect_to(ingredient)
   end
   
