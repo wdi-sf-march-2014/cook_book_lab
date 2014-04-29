@@ -7,6 +7,7 @@ class IngredientsController < ApplicationController
 
   def new
     @ingredient = Ingredient.new
+    @ingredient.ingredients_measurements.build
   end
 
   def create
