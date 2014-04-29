@@ -10,6 +10,8 @@ class RecipesController < ApplicationController
 
   def create
     recipe = Recipe.create recipe_params
+    # @measurements = @recipe.measurements.build
+    # @measurements.build_ingredients
     redirect_to(recipe)
   end
 
