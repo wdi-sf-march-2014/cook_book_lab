@@ -13,7 +13,9 @@
       <p><%= recipe.cooktime %>
       <p><%= recipe.servingsize %>
       <p><%= recipe.instructions %>
-      <!--  TODO: Add code to display ingredients!å  -->
+      <p><% recipe.ingredients.each do |i| %>
+          <%= i[:name] %> <br>
+          <% end %>
     </div>
   </div>
 <% end %>
