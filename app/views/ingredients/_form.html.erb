@@ -1,0 +1,20 @@
+<%= form_for @recipe do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :autofocus => true %>
+  <br>
+  <%= f.label :course %>
+  <%= f.text_field :course %>
+  <br>
+  <%= f.label :cooktime %>
+  <%= f.text_field :cooktime %>
+  <br>
+  <%= f.label :"serving size" %>
+  <%= f.text_field :servingsize %>
+  <br>
+  <%= f.label :instructions %>
+  <%= f.text_area :instructions, :cols => 40, :rows => 10 %>
+  <br>
+
+  <p><p>
+  <%= f.submit  class: "btn btn-primary" %>
+<% end %>
