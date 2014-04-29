@@ -10,6 +10,8 @@ class RecipesController < ApplicationController
 
   def create
     recipe = Recipe.create recipe_params
+    # @measurements = @recipe.measurements.build
+    # @measurements.build_ingredients
     redirect_to(recipe)
   end
 
@@ -35,6 +37,6 @@ class RecipesController < ApplicationController
 
   private
     def recipe_params
-      params.require(:recipe).permit(:name, :brand, :image)
+      params.require(:recipe).permit(:name, :course, :cooktime, :servingsize, :instructions)
     end
 end
