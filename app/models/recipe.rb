@@ -1,3 +1,4 @@
 class Recipe < ActiveRecord::Base
-	has_many :ingredients, through :ingredient_measurement
+	has_many :ingredient_measurements
+	has_many :ingredients
 end
