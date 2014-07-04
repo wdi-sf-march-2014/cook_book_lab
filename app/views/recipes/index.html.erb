@@ -13,7 +13,15 @@
       <p><%= recipe.cooktime %>
       <p><%= recipe.servingsize %>
       <p><%= recipe.instructions %>
-      <!--  TODO: Add code to display ingredients!å  -->
+<!--        TODO: Add code to display ingredients!å  -->
+      <% recipe.ingredients.each do |ingredient|%>
+      <div class="row">
+          <p><%= ingredient.name %>
+          <p><%= ingredient.brand %>
+        <% end %>
+      </div>
+
+      
     </div>
   </div>
 <% end %>
