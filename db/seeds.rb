@@ -4,5 +4,12 @@ ingredients = Ingredient.create([
   {name: "broth", brand: "aldi", image: ""}
   ])
 
+recipe = Recipe.create([
+  {name: "Sandwich", course: "lunch", cooktime: 10, servingsize: 1, instructions:"make it"},
+  {name: "Muffin", course: "breakfast", cooktime: 30, servingsize: 4, instructions: "bake it"},
+  {name: "Fried Chicken", course: "dinner", cooktime: 60, servingsize: 8, instructions: "shake it"}
+  ])
+
+
 
 # TODO: Create your own seed data!
