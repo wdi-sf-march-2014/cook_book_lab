@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :load_recipe, only: [:show, :edit, :update, :destroy]
  
   def index
     @recipes = Recipe.all
@@ -9,32 +10,32 @@ class RecipesController < ApplicationController
   end
 
   def create
-    recipe = Recipe.create recipe_params
+    @recipe = Recipe.create recipe_params
     redirect_to(recipe)
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
   end
 
   def update
-    recipe = Recipe.find(params[:id])
-    recipe.update_attributes recipe_params
-    redirect_to(recipe)
+    @recipe.update_attributes recipe_params
+    redirect_to(@recipe)
   end
   
   def destroy
-    recipe = Recipe.find(params[:id])
-    recipe.delete
-    redirect_to(recipes_path)
+    @recipe.delete
+    redirect_to(@recipes_path)
+  end
+
+  def load_recipe
+    @recipe = Recipe.find(params[:id])
   end
 
   private
     def recipe_params
-      params.require(:recipe).permit(:name, :course, :cooktime, :servingsize, :instructions)
+      params.require(:recipe).permit(:name, :course, :cooktime, :servingsize, :instructions, :quantities)
     end
 end
